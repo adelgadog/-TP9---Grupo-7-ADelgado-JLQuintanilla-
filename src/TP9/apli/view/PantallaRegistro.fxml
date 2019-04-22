@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TP9.apli.view.PantallaRegistroController">
+   <children>
+      <Label fx:id="labelTienda" layoutX="25.0" layoutY="42.0" prefHeight="32.0" prefWidth="322.0" text="Introduce tus datos">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Usuario" layoutX="101.0" layoutY="83.0" prefHeight="39.0" prefWidth="212.0" promptText="Usuario">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label fx:id="labelTienda1" layoutX="25.0" layoutY="194.0" prefHeight="32.0" prefWidth="59.0" text="Dinero">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="radioButton1" layoutX="120.0" layoutY="202.0" mnemonicParsing="false" text="Si">
+         <toggleGroup>
+            <ToggleGroup fx:id="Dinero" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="radioButton2" layoutX="207.0" layoutY="202.0" mnemonicParsing="false" selected="true" text="No" toggleGroup="$Dinero" />
+      <Button layoutX="73.0" layoutY="304.0" mnemonicParsing="false" onAction="#Registrado" prefHeight="39.0" prefWidth="114.0" text="Registrarse">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="245.0" layoutY="304.0" mnemonicParsing="false" onAction="#Exit" prefHeight="39.0" prefWidth="101.0" text="Salir">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="psw" layoutX="101.0" layoutY="140.0" prefHeight="39.0" prefWidth="212.0" promptText="Contraseña">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+   </children>
+</AnchorPane>

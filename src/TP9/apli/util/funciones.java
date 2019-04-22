@@ -90,14 +90,53 @@ public class funciones {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(url);
-			// if (conn != null) {
-			// DatabaseMetaData meta = conn.getMetaData();
-			// System.out.println("The driver name is " + meta.getDriverName());
-			// System.out.println("A new database has been created.");
-			// }
+			//if (conn != null) {
+				//DatabaseMetaData meta = conn.getMetaData();
+				//System.out.println("The driver name is " + meta.getDriverName());
+				//System.out.println("A new database has been created.");
+			//}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 		return conn;
 	}
+	
+	public static ResultSet datosUsuario(String usuario, String pass) {
+		
+		String sqlSelect = "select * from Usuario where usuario =? and contraseña =?";
+		ResultSet rs = null;
+		try {
+			PreparedStatement stmtUs = conectaDB("BDUsuario.db").prepareStatement(sqlSelect);
+		stmtUs.setString(1, usuario);
+		stmtUs.setString(2, pass);
+		rs = stmtUs.executeQuery();
+			
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+		
+	}
+	
+	public static void datosRegistro(String usuario, String pass, Boolean dineros) {
+		
+		String insertar = "INSERT INTO Usuario (usuario,contraseña,dinero) VALUES(?,?,?);";
+		try (PreparedStatement pstmt = conectaDB("BDUsuario.db").prepareStatement(insertar)) {
+			pstmt.setString(1, usuario);
+			pstmt.setString(2, pass);
+			if (dineros) {
+				pstmt.setInt(3, 1);
+			}
+			if (!dineros) {
+				pstmt.setInt(3, 0);
+			}
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+	}
+	
 }

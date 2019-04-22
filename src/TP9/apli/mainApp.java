@@ -1,9 +1,15 @@
 package TP9.apli;
 
 import java.io.IOException;
-import TP9.apli.view.*;
-import TP9.apli.model.*;
+
+import TP9.apli.model.Compra;
+import TP9.apli.model.Person;
+import TP9.apli.model.Producto;
 import TP9.apli.util.funciones;
+import TP9.apli.view.PantallaCarritoController;
+import TP9.apli.view.PantallaCompraController;
+import TP9.apli.view.PantallaRegistroController;
+import TP9.apli.view.PantallaUsuarioController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +27,8 @@ public class mainApp extends Application {
 
 	public mainApp() {
 		productoDato = funciones.dameProductos();
+		Person per = new Person("Pepe", true);
+		c.setPer(per);
 	}
 
 	public ObservableList<Producto> getPersonData() {
@@ -36,7 +44,7 @@ public class mainApp extends Application {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Tienda");
 		initRoot();
-		showPantallaCompra();
+		showPantallaUsuario();
 	}
 
 	/**
@@ -60,6 +68,50 @@ public class mainApp extends Application {
 	/**
 	 * * Shows the person overview inside the root layout.
 	 */
+
+	public void showPantallaUsuario() {
+
+		try {
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(mainApp.class.getResource("view/PantallaUsuario.fxml"));
+			AnchorPane PantallaUsuario = (AnchorPane) loader.load();
+			// Set person overview into the center of root layout.
+			rootLayout.setCenter(PantallaUsuario);
+			///// paso 2////
+			PantallaUsuarioController controller = loader.getController();
+			controller.setMainApp(this);
+
+			//////////
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/*
+	 * ----
+	 */
+	public void showPantallaRegistro() {
+
+		try {
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(mainApp.class.getResource("view/PantallaRegistro.fxml"));
+			AnchorPane PantallaRegistro = (AnchorPane) loader.load();
+			// Set person overview into the center of root layout.
+			rootLayout.setCenter(PantallaRegistro);
+			///// paso 2////
+			PantallaRegistroController controller = loader.getController();
+			controller.setMainApp(this);
+
+			//////////
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void showPantallaCompra() {
 
 		try {
@@ -86,6 +138,7 @@ public class mainApp extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(mainApp.class.getResource("view/PantallaCarrito.fxml"));
 			AnchorPane page = (AnchorPane) loader.load();
+
 			rootLayout.setCenter(page);
 			PantallaCarritoController controller = loader.getController();
 			controller.setMainApp(this);

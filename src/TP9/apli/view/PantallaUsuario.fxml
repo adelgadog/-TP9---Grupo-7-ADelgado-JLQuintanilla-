@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TP9.apli.view.PantallaUsuarioController">
+   <children>
+      <Button layoutX="137.0" layoutY="226.0" mnemonicParsing="false" onAction="#Login" text="Acceder">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="user" layoutX="91.0" layoutY="73.0" prefHeight="25.0" prefWidth="169.0" promptText="Usuario">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="pass" layoutX="91.0" layoutY="150.0" prefHeight="25.0" prefWidth="169.0" promptText="Contraseña">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <Label fx:id="labelTienda" layoutX="15.0" layoutY="37.0" prefHeight="17.0" prefWidth="322.0" text="Acceder a la tienda">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="467.0" layoutY="326.0" mnemonicParsing="false" onAction="#Exit" prefHeight="39.0" prefWidth="101.0" text="Salir">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="351.0" layoutY="326.0" mnemonicParsing="false" onAction="#Register" prefHeight="39.0" prefWidth="101.0" text="Registro">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelTienda1" layoutX="312.0" layoutY="287.0" prefHeight="27.0" prefWidth="252.0" text="Si eres usuario nuevo registrate">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
